@@ -8,9 +8,9 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <title>{{ config('app.name', 'Laravel') }}</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="dashboard-2.html">
-<link rel="stylesheet" href="css/colors.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/dashboard-2.html">
+<link rel="stylesheet" href="/css/colors.css">
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 </head>
 
@@ -25,7 +25,7 @@
 		<div id="logo">
 			<h1>
                 <a href="{{ url('/') }}">
-                    <img src="images/kadapostng.png" alt="Work Scout" />
+                    <img src="/images/kadapostng.png" alt="Kada Post NG" />
                 </a>
             </h1>
 		</div>
@@ -37,6 +37,7 @@
 				<li>
                     <a href="{{ url('/') }}">Home</a>
 				</li>
+				<li><a href="/jobs">Browse Jobs</a></li>
 
 				<li><a href="#">Pages</a>
 					<ul>
@@ -72,6 +73,11 @@
 						<li><a href="dashboard-my-profile.html">My Profile</a></li>
 					</ul>
 				</li>
+				@auth
+					@if(auth::user()->role == 'administrator')
+						<li><a href="/jobs/create">Add Job</a></li>
+					@endif
+				@endauth
 			</ul>
 
 
@@ -117,14 +123,15 @@
 			</ul>
 
 			<ul data-submenu-title="Management">
+				@if(auth::user()->role == 'administrator')
 				<li><a>For Employers</a>
 					<ul>
 						<li><a href="dashboard-manage-jobs.html">Manage Jobs <span class="nav-tag">5</span></a></li>
 						<li><a href="dashboard-manage-applications.html">Manage Applications <span class="nav-tag">4</span></a></li>
-						<li><a href="dashboard-add-job.html">Add Job</a></li>
+						<li><a href="/jobs/create">Add Job</a></li>
 					</ul>
 				</li>
-
+				@endif
 				<li><a>For Candidates</a>
 					<ul>
 						<li><a href="dashboard-manage-resumes.html">Manage Resumes <span class="nav-tag">2</span></a></li>
@@ -163,21 +170,21 @@
 <!-- Wrapper / End -->
 
 <!-- Scripts -->
-<script src="scripts/jquery-3.4.1.min.js"></script>
-<script src="scripts/jquery-migrate-3.1.0.min.js"></script>
-<script src="scripts/custom.js"></script>
-<script src="scripts/jquery.superfish.js"></script>
-<script src="scripts/jquery.themepunch.tools.min.js"></script>
-<script src="scripts/jquery.themepunch.revolution.min.js"></script>
-<script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
-<script src="scripts/jquery.flexslider-min.js"></script>
-<script src="scripts/chosen.jquery.min.js"></script>
-<script src="scripts/jquery.magnific-popup.min.js"></script>
-<script src="scripts/waypoints.min.js"></script>
-<script src="scripts/jquery.counterup.min.js"></script>
-<script src="scripts/jquery.jpanelmenu.js"></script>
-<script src="scripts/stacktable.js"></script>
-<script src="scripts/slick.min.js"></script>
+<script src="/scripts/jquery-3.4.1.min.js"></script>
+<script src="/scripts/jquery-migrate-3.1.0.min.js"></script>
+<script src="/scripts/custom.js"></script>
+<script src="/scripts/jquery.superfish.js"></script>
+<script src="/scripts/jquery.themepunch.tools.min.js"></script>
+<script src="/scripts/jquery.themepunch.revolution.min.js"></script>
+<script src="/scripts/jquery.themepunch.showbizpro.min.js"></script>
+<script src="/scripts/jquery.flexslider-min.js"></script>
+<script src="/scripts/chosen.jquery.min.js"></script>
+<script src="/scripts/jquery.magnific-popup.min.js"></script>
+<script src="/scripts/waypoints.min.js"></script>
+<script src="/scripts/jquery.counterup.min.js"></script>
+<script src="/scripts/jquery.jpanelmenu.js"></script>
+<script src="/scripts/stacktable.js"></script>
+<script src="/scripts/slick.min.js"></script>
 
 </body>
 

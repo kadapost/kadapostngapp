@@ -36,6 +36,7 @@
 					<!-- <a id="current" href="{{ url('/') }}">Home</a> -->
 					<a id="" href="{{ url('/') }}">Home</a>
 				</li>
+				<li><a href="/jobs">Browse Jobs</a></li>
 
 				<li><a href="#">Pages</a>
 					<ul>
