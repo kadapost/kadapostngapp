@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Job;
 class JobController extends Controller
 {
     /**
@@ -18,7 +18,10 @@ class JobController extends Controller
 
     public function index()
     {
-        return view('jobs.browse-jobs');
+        $jobs = Job::orderBy('id', 'desc')->paginate(8);
+        return view('jobs.browse-jobs')->with([
+            'jobs' => $jobs
+        ]);
     }
 
     /**
@@ -47,7 +50,34 @@ class JobController extends Controller
             'description' => 'required',
             'company_name' => 'required'
         ]);
-        return $request;
+        $job = new Job;
+        $job->user_id = auth()->user()->id;
+        $job->user_email = auth()->user()->email;
+        $job->title = $request->input('title');
+        $job->type = $request->input('type');
+        $job->category = 'any type';
+        $job->location = $request->input('location');
+        $job->tags = $request->input('tags');
+        $job->description = $request->input('description');
+        $app = $request->input('application');
+        if(strpos($app, '@')){
+            $job->application_email = $app;
+        }else{
+            $job->application_url = $app;
+        }
+        $job->closing_date = $request->input('closing_date');
+        $job->company_name = $request->input('company_name');
+        $job->company_website = $request->input('company_website');
+        if($request->hasFile('logo')){
+            $fileNameWithExt = $request->file('logo')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            move_uploaded_file($request->file('logo'), "./images/$fileNameToStore");
+            $job->logo = $fileNameToStore;
+        }
+        $job->save();
+        return redirect('./jobs')->with('success', 'Job Added!');
     }
 
     /**
@@ -58,7 +88,10 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        //
+        $job = Job::findOrFail($id);
+        return view('jobs.job-page')->with([
+            'job' => $job
+        ]);
     }
 
     /**

@@ -4,12 +4,12 @@
 <div id="titlebar">
 	<div class="container">
 		<div class="ten columns">
-			<span>We found 1,412 jobs matching:</span>
-			<h2>Web, Software & IT</h2>
+			<span>We found {{number_format(count($jobs))}} jobs matching:</span>
+			<!-- <h2>Web, Software & IT</h2> -->
 		</div>
 
 		<div class="six columns">
-			<a href="dashboard-add-job.html" class="button">Post a Job, It’s Free!</a>
+			<!-- <a href="dashboard-add-job.html" class="button">Post a Job, It’s Free!</a> -->
 		</div>
 
 	</div>
@@ -23,23 +23,29 @@
 	<div class="padding-right">
 
 		<div class="listings-container">
-			
+			@foreach($jobs as $job)
 			<!-- Listing -->
-			<a href="job-page-alt.html" class="listing full-time">
+			<a href="/jobs/{{$job->id}}" class="listing full-time">
+				@if($job->logo <> '')
 				<div class="listing-logo">
-					<img src="images/job-list-logo-01.png" alt="">
+					<img src="images/{{$job->logo}}" alt="">
 				</div>
+				@endif
 				<div class="listing-title">
-					<h4>Marketing Coordinator - SEO / SEM Experience <span class="listing-type">Full-Time</span></h4>
+					<h4>{{$job->title}} <span class="listing-type">{{$job->type}}</span></h4>
 					<ul class="listing-icons">
-						<li><i class="ln ln-icon-Management"></i> King</li>
-						<li><i class="ln ln-icon-Map2"></i> Sydney</li>
-						<li><i class="ln ln-icon-Money-2"></i> $5000 - $7000</li>
+						<li><i class="ln ln-icon-Management"></i> {{$job->company_name}}</li>
+						<li><i class="ln ln-icon-Map2"></i> {{$job->location}}</li>
+						<!-- <li><i class="ln ln-icon-Money-2"></i> $5000 - $7000</li> -->
+						{{date('d-m-Y')}}
+						@if( date('d-m-y', strtotime($job->created_at)) == date('d-m-y') )
 						<li><div class="listing-date new">new</div></li>
+						@else
+						@endif
 					</ul>
 				</div>
 			</a>
-			
+			@endforeach
 			<!-- Listing -->
 			<a href="job-page.html" class="listing part-time">
 				<div class="listing-logo">

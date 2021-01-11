@@ -19,7 +19,7 @@
 
 		<div class="row">
 			
-            <form action="/jobs" method="POST" enctyp="multipart/form-data">
+            <form action="/jobs" method="POST" enctype="multipart/form-data">
             @csrf
 			<!-- Table-->
 			<div class="col-lg-12 col-md-12">
@@ -46,10 +46,10 @@
 						<div class="form">
 							<h5>Job Type</h5>
 							<select name="type" data-placeholder="Full-Time" class="chosen-select-no-single">
-								<option value="full-time">Full-Time</option>
-								<option value="part-time">Part-Time</option>
-								<option value="internship">Internship</option>
-								<option value="freelance">Freelance</option>
+								<option value="Full-Time">Full-Time</option>
+								<option value="Part-Time">Part-Time</option>
+								<option value="Internship">Internship</option>
+								<option value="Freelance">Freelance</option>
 							</select>
 						</div>
 
@@ -59,14 +59,11 @@
 							<div class="select">
 								<h5>Category</h5>
 								<select name="category" data-placeholder="Choose Categories" class="chosen-select" multiple>
-									<option value="1">Web Developers</option>
-									<option value="2">Mobile Developers</option>
-									<option value="3">Designers & Creatives</option>
-									<option value="4">Writers</option>
-									<option value="5">Virtual Assistants</option>
-									<option value="6">Customer Service Agents</option>
-									<option value="sales and marketing">Sales & Marketing Experts</option>
-									<option value="8">Accountants & Consultants</option>
+									<option value="teaching">Teaching</option>
+									<option value="designers & creatives">Designers & Creatives</option>
+									<option value="sales & marketing">Sales & Marketing Experts</option>
+									<option value="accountants & consultants">Accountants & Consultants</option>
+									<option value="restaurant / food service">Restaurant / Food Service</option>
 								</select>
 							</div>
 						</div>
@@ -103,7 +100,7 @@
 						<!-- TClosing Date -->
 						<div class="form">
 							<h5>Closing Date <span>(optional)</span></h5>
-							<input name="closing_date" data-role="date" type="text" placeholder="yyyy-mm-dd">
+							<input name="closing_date" data-role="date" type="date" placeholder="yyyy-mm-dd">
 							<p class="note">Deadline for new applicants.</p>
 						</div>
 

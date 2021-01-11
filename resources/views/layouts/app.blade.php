@@ -8,8 +8,8 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <title>{{ config('app.name', 'Laravel') }}</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/colors.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/colors.css">
 </head>
 <body>
 <div id="wrapper">
@@ -23,7 +23,7 @@
 		<div id="logo">
 			<h1>
                 <a href="{{ url('/') }}">
-                    <img src="images/kadapostng.png" alt="Kada Post NG" />
+                    <img src="/images/kadapostng.png" alt="Kada Post NG" />
                 </a>
             </h1>
 		</div>
@@ -185,22 +185,22 @@
 <!-- Wrapper / End -->
 
 <!-- Scripts -->
-<script src="scripts/jquery-3.4.1.min.js"></script>
-<script src="scripts/jquery-migrate-3.1.0.min.js"></script>
-<script src="scripts/custom.js"></script>
-<script src="scripts/jquery.superfish.js"></script>
-<script src="scripts/jquery.themepunch.tools.min.js"></script>
-<script src="scripts/jquery.themepunch.revolution.min.js"></script>
-<script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
-<script src="scripts/jquery.flexslider-min.js"></script>
-<script src="scripts/chosen.jquery.min.js"></script>
-<script src="scripts/jquery.magnific-popup.min.js"></script>
-<script src="scripts/waypoints.min.js"></script>
-<script src="scripts/jquery.counterup.min.js"></script>
-<script src="scripts/jquery.jpanelmenu.js"></script>
-<script src="scripts/stacktable.js"></script>
-<script src="scripts/slick.min.js"></script>
-<script src="scripts/headroom.min.js"></script>
+<script src="/scripts/jquery-3.4.1.min.js"></script>
+<script src="/scripts/jquery-migrate-3.1.0.min.js"></script>
+<script src="/scripts/custom.js"></script>
+<script src="/scripts/jquery.superfish.js"></script>
+<script src="/scripts/jquery.themepunch.tools.min.js"></script>
+<script src="/scripts/jquery.themepunch.revolution.min.js"></script>
+<script src="/scripts/jquery.themepunch.showbizpro.min.js"></script>
+<script src="/scripts/jquery.flexslider-min.js"></script>
+<script src="/scripts/chosen.jquery.min.js"></script>
+<script src="/scripts/jquery.magnific-popup.min.js"></script>
+<script src="/scripts/waypoints.min.js"></script>
+<script src="/scripts/jquery.counterup.min.js"></script>
+<script src="/scripts/jquery.jpanelmenu.js"></script>
+<script src="/scripts/stacktable.js"></script>
+<script src="/scripts/slick.min.js"></script>
+<script src="/scripts/headroom.min.js"></script>
 
 </body>
 
